@@ -1,18 +1,9 @@
 import React from 'react';
-// import logo from './icon/logo.png'
 
 
 class Nav extends React.Component{
 
     render(){
-
-        // const styles1 = {
-        //     flex: 1
-        // };
-        // const styles2 = {
-        //     paddingRight:'5px'
-        // };
-    
 
         return (
             <nav>
