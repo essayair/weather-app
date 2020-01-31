@@ -1,29 +1,36 @@
 import React from 'react';
 
+function Nav(props) {
 
-class Nav extends React.Component{
+    const searchOnEnter = event =>{
+        const isEnterPressed = event.key === 'Enter';
+        if (isEnterPressed) props.search();
+    }
 
-    render(){
+
 
         return (
             <nav>
             <div style={{flex: 1}}>
-              <input class="search-input" />
-              <button class="search-btn"><i class="fa fa-search"></i></button>
+              <input 
+              onKeyPress = {searchOnEnter}
+              onChange={props.handleSearchValueChange}
+              value={props.searchValue}
+              className="search-input" />
+              <button onClick ={props.search} className="search-btn">
+                <i className="fa fa-search"></i></button>
     
-              <button class="temp-switch">
+              <button onClick = {props.toggleUnit} className="temp-switch">
                 <i
-                  class="fa fa-thermometer-empty"
+                  className="fa fa-thermometer-empty"
                   aria-hidden="true"
                   style={{paddingRight:'5px'}}
                 ></i>
-                <sup>&deg;</sup>C
+                <sup>&deg;</sup>{props.Unit}
               </button>
             </div>
           </nav>
         );
     }
-
-}
 
 export default Nav;

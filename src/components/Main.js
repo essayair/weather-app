@@ -1,19 +1,26 @@
 import React from 'react';
 import WeatherCondition from './WeatherCondition';
-import WeatherForcast from './WeatherForcast';
+import WeatherForecast from './WeatherForecast';
+// import { parseWithOptions } from 'date-fns/fp';
 
 
-class Main extends React.Component{
-
-    render(){
-        return (
-            <main>
-            <WeatherCondition />
-            <WeatherForcast />
-          </main>       
-          );
-    }
-
+function Main(props) {
+    return (
+        <main>
+        <WeatherCondition
+          unit={props.unit}
+          cityName = {props.cityName}
+          current={props.current} 
+          />
+        <WeatherForecast 
+          unit={props.unit}
+          forecasts={props.forecasts}
+          handleChangeLimit={props.handleChangeLimit}
+          limit={props.limit}
+        />
+      </main>       
+      )
 }
+
 
 export default Main;
